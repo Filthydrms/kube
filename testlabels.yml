@@ -1,0 +1,23 @@
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+        name: testmeonceagain
+        labels:
+                env: "test"
+                client: "atos-internal"
+                autoterm: "true"
+                buildteam: "bnps"
+        namespace: default
+spec:
+        containers:
+                -  name: nginxcontainer
+                   image: nginx:latest
+                   ports:
+                           -  containerPort: 80
+                              protocol: TCP
+
+                              
+
+...

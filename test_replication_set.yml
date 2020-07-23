@@ -1,0 +1,27 @@
+---
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: tmnl-portals-rc
+  labels:
+    client: "TMNL"
+    appName: "portals"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      client: "TMNL"
+      appName: "portals"
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        client: "TMNL"
+        appName: "portals"
+        env: "dev"
+    spec:
+      containers:
+      -  name: portals-frontend
+         image: nginx:latest
+                   

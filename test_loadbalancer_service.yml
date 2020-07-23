@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp
+spec:
+  type: LoadBalancer
+  selector:
+    appName: "test"
+    client: "Aviva"
+  ports:
+  - port: 8018
+    targetPort: 80

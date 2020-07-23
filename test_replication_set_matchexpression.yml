@@ -1,0 +1,36 @@
+---
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: aviva-myapp-dev-rs
+  labels:
+    env: "dev"
+    client: "Aviva"
+    owner: "BDS"
+spec:
+  replicas: 3
+  selector: 
+    matchExpressions:
+    -  key: appName 
+       operator: In
+       values:
+       -  "recorderplus"
+    -  key: env
+       operator: In
+       values:
+       -  "dev"
+       -  "prod"
+  template:
+    metadata:
+      name: myapp-dev-pod
+      labels:
+        env: "dev"
+        appName: "recorderplus"
+        client: "Aviva"
+        owner: "BDS"
+    spec:
+      containers:
+        - image:  nginx
+          name:  myapp-webserver
+        

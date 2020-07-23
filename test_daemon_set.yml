@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: diskmgmt-hdd-daemonset
+  labels:
+    diskType: "HDD"
+    appName: "luksa"
+spec:
+  selector:
+    matchLabels:
+      app: "diskmgmt"
+  template:
+    metadata:
+      name: disk-mgmt-hdd
+      labels:
+        app: "diskmgmt"
+        ver: "v7.02"
+    spec:
+      nodeSelector:
+        disktype: HDD
+      containers:
+      - image: luksa/ssd-monitor
+        name:  diskmgmt
+  

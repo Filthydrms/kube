@@ -1,0 +1,19 @@
+---
+
+apiVersion: v1
+kind: Pod
+metadata: 
+  labels: 
+    client: aviva
+    env: test
+  name: live-probe-check
+  namespace: aviva-workspace
+spec: 
+  containers: 
+  - image: luksa/kubia-unhealthy
+    name: kubia-test-container
+    livenessProbe: 
+      httpGet: 
+        path: /
+        port: 8080
+    

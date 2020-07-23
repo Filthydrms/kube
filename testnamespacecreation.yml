@@ -1,0 +1,11 @@
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+        name: aviva-workspace
+        generateName: aviva
+        labels:
+                client: "Aviva"
+                owner: "IDM"
+                
